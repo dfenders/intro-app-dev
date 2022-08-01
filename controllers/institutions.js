@@ -106,6 +106,7 @@ const createInstitution = async (req, res) => {
   };
 
   export {
+    getInstitution,
     getInstitutions,
     createInstitution,
     updateInstitution,
