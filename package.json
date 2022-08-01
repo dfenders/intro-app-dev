@@ -4,12 +4,9 @@
   "description": "",
   "main": "app.js",
   "type": "module",
-  
   "scripts": {
-    "start" : "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "institutions:create" : "node prisma/seed.js",
-    "institutions:delete" : "node prisma/seed.js -d"
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",

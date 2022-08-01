@@ -9,8 +9,7 @@ datasource db {
 
 model Institution {
   id         Int          @id @default(autoincrement())
-  name       String       @unique
-  country    String?
+  name       String       
   createdAt  DateTime     @default(now())
   departments Department[]
 }

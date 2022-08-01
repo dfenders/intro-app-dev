@@ -13,7 +13,7 @@ const getInstitutions = async (req, res) => {
       return res.status(200).json({ msg: "No institutions found" });
     }
 
-    return res.json({ data: institutions });
+    return res.status(200).json({ data: institutions });
   } catch (err) {
     return res.status(500).json({
       msg: err.message,
@@ -23,10 +23,10 @@ const getInstitutions = async (req, res) => {
 
 const createInstitution = async (req, res) => {
     try {
-      const { name, country } = req.body; // destructuring object
+      const { name, region, country } = req.body; // destructuring object
   
       await prisma.institution.create({
-        data: { name, country },
+        data: { name, region, country },
       });
   
       const newInstitutions = await prisma.institution.findMany({
@@ -66,7 +66,7 @@ const createInstitution = async (req, res) => {
         data: { name, region, country },
       });
   
-      return res.json({
+      return res.status(200).json({
         msg: `Institution with the id: ${id} successfully update`,
         data: institution,
       });
@@ -95,7 +95,7 @@ const createInstitution = async (req, res) => {
         where: { id: Number(id) },
       });
   
-      return res.json({
+      return res.status(200).json({
         msg: `Institution with the id: ${id} successfully deleted`,
       });
     } catch (err) {
