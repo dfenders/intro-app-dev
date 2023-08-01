@@ -1,23 +1,19 @@
-import dotenv from "dotenv";
-import express, { urlencoded, json } from "express";
+// Import the Express module
+import express from 'express';
 
-import institutions from "./routes/institutions.js";
-import departments from "./routes/departments.js";
+// Import the index routes module
+import indexRoutes from './routes/index.js';
 
-dotenv.config();
-
+// Create an Express application
 const app = express();
 
-const BASE_URL = "api";
+// Use the routes module
+app.use('/', indexRoutes);
 
-const PORT = process.env.PORT;
-
-app.use(urlencoded({ extended: false }));
-app.use(json());
-
-app.use(`/${BASE_URL}/institutions`, institutions);
-app.use(`/${BASE_URL}/departments`, departments);
-
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+// Start the server on port 3000
+app.listen(3000, () => {
+  console.log('Server is listening on port 3000.');
 });
+
+// Export the Express application. Other modules may use it. For example, API testing
+export default app;
