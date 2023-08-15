@@ -12,7 +12,7 @@ datasource db {
 
 model Institution {
   id         Int          @id @default(autoincrement())
-  name       String
+  name       String       
   region     String
   country    String
   departments Department[]

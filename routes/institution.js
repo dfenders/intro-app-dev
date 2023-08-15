@@ -8,9 +8,11 @@ import {
   deleteInstitution,
 } from "../controllers/institution.js";
 
+import { validatePostInstitution } from "../middleware/validation.js";
+
 const router = express.Router();
 
-router.post("/", createInstitution);
+router.post("/", validatePostInstitution, createInstitution);
 router.get("/", getInstitutions);
 router.get("/:id", getInstitution);
 router.put("/:id", updateInstitution);
